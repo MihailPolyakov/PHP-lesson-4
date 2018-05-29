@@ -1,1 +1,56 @@
-# PHP-lesson-4
+<?php
+$animals=[
+    'Africa'=>[
+        'Syncerus caffer',
+        'Poelagus marjorita',
+        'Loxodonta',
+        'Hippopotamus amphibius',
+        'Otocyon megalotis',
+        'Tragelaphus eurycerus',
+        'Gazella dorcas',
+        ],
+    'Australia'=>['Macropus'],
+    'South-America'=>['Eunectes murinus'],
+    'Canada'=>['Ursus arctos x maritimus'],
+    'Antarctica'=>['Spheniscidae'],
+];
+
+$result = [];
+foreach ($animals as $countinent) {
+    $result = array_merge($result, array_filter($countinent, function ($item){ return count(explode(' ', $item)) === 2; }) );
+}
+
+echo "<pre>";
+print_r($result);
+echo "</pre>";
+
+$firstanimals=[];
+$secondanimals=[];
+
+foreach ($result as $value) {
+	$put = explode(' ', $value);
+	$firstanimals = $put[0];
+	$secondanimals = $put[1];
+	/*shuffle($secondanimals);*/
+}
+echo "<pre>";
+print_r($put);
+echo "</pre>";
+
+echo "<pre>";
+print_r($firstanimals);
+echo "</pre>";
+
+echo "<pre>";
+print_r($secondanimals);
+echo "</pre>";
+
+/*foreach ($firstanimals as $plus => $value) {
+		$plus=$plus . ' ' . $secondanimals;
+		echo "<pre>";
+		print_r($plus);
+		echo "</pre>";
+}*/
+
+
+?>
