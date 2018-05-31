@@ -15,42 +15,48 @@ $animals=[
     'Antarctica'=>['Spheniscidae'],
 ];
 
+
 $result = [];
-foreach ($animals as $countinent) {
-    $result = array_merge($result, array_filter($countinent, function ($item){ return count(explode(' ', $item)) === 2; }) );
+
+foreach ($animals as $value) {
+	foreach ($value as $ani) {
+		/*if (str_word_count($ani)==2) */
+		if (count(explode(' ', $ani))==2)
+		{
+			$result[]=$ani;
+		}
+	}
 }
+
 
 echo "<pre>";
 print_r($result);
 echo "</pre>";
+
 
 $firstanimals=[];
 $secondanimals=[];
 
 foreach ($result as $value) {
 	$put = explode(' ', $value);
-	$firstanimals = $put[0];
-	$secondanimals = $put[1];
-	/*shuffle($secondanimals);*/
+	$firstanimals[] = $put[0];
+	$secondanimals[] = $put[1];
 }
-echo "<pre>";
-print_r($put);
-echo "</pre>";
 
-echo "<pre>";
-print_r($firstanimals);
-echo "</pre>";
+shuffle($secondanimals);
 
-echo "<pre>";
-print_r($secondanimals);
-echo "</pre>";
-
-/*foreach ($firstanimals as $plus => $value) {
-		$plus=$plus . ' ' . $secondanimals;
 		echo "<pre>";
-		print_r($plus);
+		print_r($firstanimals);
 		echo "</pre>";
-}*/
 
+
+foreach ($firstanimals as $i => $value) {
+		$firstanimals[$i] = $value . ' ' . $secondanimals[$i];
+		
+}
+
+		echo "<pre>";
+		print_r($firstanimals);
+		echo "</pre>";
 
 ?>
