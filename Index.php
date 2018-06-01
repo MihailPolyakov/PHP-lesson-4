@@ -15,40 +15,22 @@ $animals=[
     'Antarctica'=>['Spheniscidae'],
 ];
 
-
 $result = [];
-
-foreach ($animals as $value) {
-	foreach ($value as $ani) {
-		/*if (str_word_count($ani)==2) */
-		if (count(explode(' ', $ani))==2)
-		{
-			$result[]=$ani;
-		}
-	}
-}
-
-
-echo "<pre>";
-print_r($result);
-echo "</pre>";
-
-
 $firstanimals=[];
 $secondanimals=[];
 
-foreach ($result as $value) {
-	$put = explode(' ', $value);
-	$firstanimals[] = $put[0];
-	$secondanimals[] = $put[1];
+foreach ($animals as $value) {
+	foreach ($value as $key => $ani) {
+		 $arraywords=explode(' ', $ani);
+		if (count($arraywords)==2){	
+			$firstanimals[]=$arraywords[0];
+			$secondanimals[]=$arraywords[1];
+		}
+		
+	}
 }
 
 shuffle($secondanimals);
-
-		echo "<pre>";
-		print_r($firstanimals);
-		echo "</pre>";
-
 
 foreach ($firstanimals as $i => $value) {
 		$firstanimals[$i] = $value . ' ' . $secondanimals[$i];
