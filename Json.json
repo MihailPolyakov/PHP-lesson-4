@@ -1,0 +1,19 @@
+[{
+	"Firstname": "Alina",
+	"second name": "Priimak",
+	"adress": "г. Владивосток, ул. Тухаческого 30",
+	"number": 89143236344
+},
+{
+	"Firstname": "Mihail",
+	"second name": "Polyakov",
+	"adress": "г. Владивосток, ул. Стрельникова 12",
+	"number":89147173755
+},
+{
+	"Firstname": "Vladislav",
+	"second name": "Kushnir",
+	"adress": "г. Владивосток, ул. Океанский проспект 98",
+	"number": 89147135481
+}
+]
